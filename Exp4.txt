@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exp4</title>
+    <script src="Exp4.js"></script>
+</head>
+<body>
+    <h1>Comparison of two Strings</h1>
+    <label>Enter first String:</label>
+    <input type="text" id="str1">
+    <label>Enter second String:</label>
+    <input type="text" id="str2">
+    <br><br>
+    <button onclick="compare()">Compare</button>
+    <h2>Results:</h2>
+    <h3>Mathematical Operator ( == ):</h3>
+    <label id="mathop"></label>
+    <h3>Strict Equality:</h3>
+    <label id="stricteq"></label>
+    <h3>Using match() method:</h3>
+    <label id="match"></label>
+    <h3>Using matchAll:</h3>
+    <label id="matchAll"></label>
+    <h3>Using localeCompare:</h3>
+    <label id="localecompare"></label>
+</body>
+</html>
+
+------------------------------------------------------------
+
+function compare(){
+    var str1 = document.getElementById("str1").value;
+    var str2 = document.getElementById("str2").value;
+
+    var mathop = (str1 == str2) ? "Strings Equal" : "Strings not Equal"
+    document.getElementById("mathop").innerHTML = mathop;
+
+    var stricteq = (str1 === str2) ? "Strings Equal" : "Strings not Equal"
+    document.getElementById("stricteq").innerHTML = stricteq;
+
+    var match = str1.match(str2) ? "Strings Equal" : "Strings not Equal"
+    document.getElementById("match").innerHTML = match;
+
+    var matchAll = str1.matchAll(str2) ? "Strings Equal" : "Strings not Equal"
+    document.getElementById("matchAll").innerHTML = matchAll;
+
+    var localecompare = str1.localeCompare(str2) == 0 ? "Strings Equal" : "Strings not Equal"
+    document.getElementById("localecompare").innerHTML = localecompare;
+}

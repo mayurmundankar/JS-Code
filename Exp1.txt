@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exp1</title>
+    <script src="Exp1.js"></script>
+</head>
+<body>
+
+    <h1>Area Calculator</h1>
+
+    <!-- Triangle Area -->
+    <h2>Triangle</h2>
+    <label>Enter Base:</label>
+    <input type="number" id="base">
+    <label>Enter Height:</label>
+    <input type="number" id="height">
+    <button onclick="calculateTriangleArea()">Calculate</button>
+    <p id="triangle-area"></p>
+
+    <!-- Rectangle Area -->
+    <h2>Rectangle</h2>
+    <label>Enter Length:</label>
+    <input type="number" id="length">
+    <label>Enter Breadth:</label>
+    <input type="number" id="breadth">
+    <button onclick="calculateRectangleArea()">Calculate</button>
+    <p id="rectangle-area"></p>
+
+    <!-- Circle Area -->
+    <h2>Circle</h2>
+    <label>Enter Radius:</label>
+    <input type="number" id="radius">
+    <button onclick="calculateCircleArea()">Calculate</button>
+    <p id="circle-area"></p>
+
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------
+
+// Function to calculate area of a triangle
+function calculateTriangleArea() {
+    var base = parseFloat(document.getElementById('base').value);
+    var height = parseFloat(document.getElementById('height').value);
+    var area = 0.5 * base * height;
+    document.getElementById('triangle-area').innerText = "Area of Triangle: " + area;
+}
+
+// Function to calculate area of a rectangle
+function calculateRectangleArea() {
+    var length = parseFloat(document.getElementById('length').value);
+    var breadth = parseFloat(document.getElementById('breadth').value);
+    var area = length * breadth;
+    document.getElementById('rectangle-area').innerText = "Area of Rectangle: " + area;
+}
+
+// Function to calculate area of a circle
+function calculateCircleArea() {
+    var radius = parseFloat(document.getElementById('radius').value);
+    var area = 3.14 * radius * radius;
+    document.getElementById('circle-area').innerText = "Area of Circle: " + area;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exp2</title>
+    <script src="Exp2.js"></script>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+
+    <label>Enter Number: </label>
+    <input type="number" id="num" placeholder="Enter Number">
+    <br><br>
+    <button onclick="table()">Calculate</button>
+    <br><br>
+    <p id="result"></p>
+</body>
+</html>
+
+-------------------------------------------------------------------------
+
+function table() {
+    var str = "Table:";
+    var n = parseInt(document.getElementById("num").value);
+    for (var i = 1; i <= 10; i++) {
+      var b = n * i;
+      str = str + "<p>" + n + " x " + i + " = " + b + "</p>";
+    }
+    document.getElementById("result").innerHTML = str;
+}

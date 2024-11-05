@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exp5</title>
+</head>
+<body>
+  <div class="container">
+    <h1>CountDown Timer</h1>
+    <label for="expiryDate">Expiry Date:</label>
+    <input type="date" id="expiryDate">
+
+    <label for="expiryTime">Expiry Time:</label>
+    <input type="time" id="expiryTime">
+
+    <button onclick="startCountdown()">Start Countdown</button>
+
+    <div id="countdown"></div>
+  </div>
+
+  <script>
+    function startCountdown() {
+      const expiryDateInput = document.getElementById('expiryDate');
+      const expiryTimeInput = document.getElementById('expiryTime');
+
+      const expiryDate = expiryDateInput.value;
+      const expiryTime = expiryTimeInput.value;
+
+      const expiryDateTime = new Date(`${expiryDate}T${expiryTime}`);
+      const countdownElement = document.getElementById('countdown');
+
+      const intervalId = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = expiryDateTime - now;
+
+        if (distance < 0) {
+          clearInterval(intervalId);
+          countdownElement.textContent = "Countdown Timer Expired";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.textContent = 
+          `Current Time: ${new Date().toLocaleString()}\n` +
+          `Expiry Time: ${expiryDateTime.toLocaleString()}\n` +
+          `Remaining Time: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
