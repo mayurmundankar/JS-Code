@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_arith.ALL;
 entity fifo_mayur is
     Port ( clk, rst : in  STD_LOGIC;
            enw, enr : in  STD_LOGIC;
-           full, empty : in  STD_LOGIC;
+           full, empty : out  STD_LOGIC;
            datain : in  STD_LOGIC_VECTOR (3 downto 0);
            dataout : out  STD_LOGIC_VECTOR (3 downto 0));
 end fifo_mayur;
